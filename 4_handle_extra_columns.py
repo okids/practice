@@ -29,11 +29,11 @@ uri_source = "gs://dataset_example.csv"
 staging_table_id = "test-project.test.staging"
 
 load_job = client.load_table_from_uri(
-    uri, table_id, job_config=job_config
+    uri_source, staging_table_id, job_config=job_config
 )  # Make an API request.
 load_job.result()  # Waits for the job to complete.
 
-destination_table = client.get_table(table_id)
+destination_table = client.get_table(staging_table_id)
 
 print("Loaded {} rows from staging.".format(destination_table.num_rows))
 
