@@ -43,7 +43,7 @@ job_config = bigquery.QueryJobConfig(destination=table_id)
 
 sql = """
     SELECT NULLIF(salary,''), NULLIF(emp_id,''), NULLIF(emp_dept,''), NULLIF(emp_name,''), NULLIF(emp_job,'')
-    FROM `test-project.test.employee`
+    FROM `test-project.test.staging`
 """
 
 query_job = client.query(sql, job_config=job_config)  
